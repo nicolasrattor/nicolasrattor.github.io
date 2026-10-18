@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicolás Ratto · Sociología del trabajo</title>
+<meta name="description" content="Sociólogo. Estudiante de Doctorado en Sociología, PUC Chile. Sindicatos, informalidad laboral y regulación del trabajo de plataformas digitales.">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#14171c; --surface:#1b1f26; --ink:#e8e6e1; --muted:#9aa3b0; --line:#2b313b;
+  --accent:#e08a93; --accent-soft:#2a1f22;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+header.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px;gap:16px;flex-wrap:wrap}
+.brand{font-family:var(--serif);font-weight:700;color:var(--ink)}
+nav a{margin-left:18px;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--accent);text-decoration:none}
+.hero{padding:72px 0 40px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.1;margin:0 0 8px}
+.hero .role{color:var(--muted);font-size:1.1rem;margin:0 0 24px}
+.hero p.lead{font-family:var(--serif);font-size:1.2rem;max-width:660px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:8px 16px;border-radius:999px;font-size:.92rem;color:var(--ink)}
+.btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--serif);font-size:1.6rem;margin:0 0 20px}
+.lines{display:grid;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.card h3{margin:0 0 6px;font-family:var(--serif);font-size:1.15rem}
+.card .num{display:inline-block;color:var(--accent);font-weight:700;margin-right:8px}
+.card p{margin:0 0 10px;color:var(--muted);font-size:.98rem}
+.card ul{margin:8px 0 0;padding-left:18px;font-size:.92rem}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 14px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.pubs{list-style:none;margin:0;padding:0}
+.pubs li{padding:14px 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.pubs li:last-child{border-bottom:0}
+.pubs .yr{display:inline-block;min-width:3em;color:var(--accent);font-weight:700}
+.pubs .tag{display:inline-block;font-size:.72rem;background:var(--accent-soft);color:var(--accent);padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.pubs em{color:var(--muted)}
+h3.sub{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:28px 0 8px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:10px 0}
+.timeline .when{color:var(--muted);font-size:.9rem}
+.timeline strong{display:block}
+@media(max-width:600px){.timeline li{grid-template-columns:1fr;gap:2px}nav a{margin-left:12px}}
+footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+.pubs strong a,.card h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px}
+.pubs strong a:hover,.card h3 a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.hidden{display:none}
+.tag-line{display:inline-block;font-size:.76rem;background:var(--accent-soft);color:var(--accent);padding:2px 10px;border-radius:999px}
+.note{margin:0 0 4px;color:var(--muted);font-size:.9rem}
+
+/* ===== Pestañas ===== */
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}
+nav.tabs a{margin:0;padding:6px 14px;border-radius:999px;color:var(--muted);font-size:.92rem}
+nav.tabs a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+nav.tabs a[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.tab-hidden{display:none !important}
+section:first-of-type{border-top:0}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Nicolás Ratto</a>
+    <nav class="tabs" role="tablist">
+      <a href="#inicio" data-nav="inicio">Inicio</a>
+      <a href="#publicaciones" data-nav="publicaciones">Publicaciones</a>
+      <a href="#presentaciones" data-nav="presentaciones">Presentaciones</a>
+      <a href="#opinion" data-nav="opinion">Opinión</a>
+      <a href="#dashboards" data-nav="dashboards">Dashboards</a>
+      <a href="#trayectoria" data-nav="trayectoria">Trayectoria</a>
+      <a href="#contacto" data-nav="contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero" id="inicio" data-tab="inicio">
+  <h1>Nicolás Ratto</h1>
+  <p class="role">Sociólogo · Estudiante de Doctorado en Sociología, Pontificia Universidad Católica de Chile</p>
+  <p class="lead">Investigo cómo los trabajadores se organizan, cómo se insertan y circulan en el mercado laboral, y cómo el Estado regula las nuevas formas de trabajo. Combino sociología del trabajo, análisis cuantitativo y experiencia en diseño de políticas públicas de empleo.</p>
+  <div class="links">
+    <a class="btn primary" href="#contacto">Contacto</a>
+    <a class="btn" href="#publicaciones">Ver publicaciones</a>
+  </div>
+</div>
+
+<section id="investigacion" data-tab="inicio">
+  <h2>Líneas de investigación</h2>
+  <div class="lines">
+
+    <article class="card">
+      <h3><span class="num">01</span>Estrategias sindicales y recursos de poder</h3>
+      <p>Análisis de cómo los sindicatos, en particular en sectores de trabajadores estructuralmente débiles, movilizan recursos de poder para enfrentar la precariedad: huelgas, organización sindical, paralelismo y politización en el retail, el trabajo doméstico y la subcontratación.</p>
+      <ul>
+        <li>Marco de recursos de poder y variedades sindicales en Chile y América Latina</li>
+        <li>Resultados de huelgas y poder sindical en el sector privado</li>
+        <li>Paquete de R <em>sindicatoscl</em> para acceder a microdatos de sindicatos</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3><span class="num">02</span>Informalidad laboral y trayectorias de empleo</h3>
+      <p>Estudio de la persistencia de la informalidad, la precariedad y la movilidad entre empleos a partir de registros administrativos y encuestas. Es el eje de mi proyecto doctoral.</p>
+      <ul>
+        <li>Informalidad e institucionalidad en el trabajo doméstico</li>
+        <li>Medición de la precariedad en trabajadores independientes</li>
+        <li>Rotación laboral con registros administrativos</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3><span class="num">03</span>Plataformas digitales y regulaciones del trabajo</h3>
+      <p>Evaluación de la regulación del trabajo en plataformas digitales, desde la implementación de la Ley 21.431 en Chile hasta la discusión normativa en la Conferencia Internacional del Trabajo de la OIT.</p>
+      <ul>
+        <li>Evaluaciones de la Ley 21.431 para el Consejo Superior Laboral</li>
+        <li>Trabajo decente en la economía de plataformas (OIT, CIT)</li>
+        <li>Posiciones de trabajadores y gobiernos frente a la regulación internacional</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<section id="publicaciones" data-tab="publicaciones">
+  <h2>Publicaciones seleccionadas</h2>
+  <div class="filters" role="group" aria-label="Filtrar por línea de investigación">
+    <button data-f="all" aria-pressed="true">Todas</button>
+    <button data-f="sind" aria-pressed="false">Sindicatos</button>
+    <button data-f="inf" aria-pressed="false">Informalidad</button>
+    <button data-f="plat" aria-pressed="false">Plataformas</button>
+    <button data-f="emp" aria-pressed="false">Empleo</button>
+  </div>
+
+  <h3 class="sub" data-group="j">Artículos en revistas científicas</h3>
+  <ul class="pubs" id="pubs-j">
+    <li data-l="sind"><span class="yr">2023</span>Ratto, N., Stecher, A. y Aravena, A. <strong><a href="https://revistas.unal.edu.co/index.php/recs/article/view/98673" target="_blank" rel="noopener">La configuración sindical en las grandes empresas del Retail en Chile: recursos de poder, ideología y formas de organización.</a></strong> <em>Revista Colombiana de Sociología, 46(2).</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2021</span>Ratto, N. <strong><a href="https://dados.iesp.uerj.br/artigos/?id=1198" target="_blank" rel="noopener">La intensificación negociada. Cambios en el régimen de trabajo en una gran empresa del retail en Chile (2006–2018).</a></strong> <em>DADOS – Revista de Ciências Sociais, 64(3).</em><span class="tag">Sindicatos</span></li>
+    <li data-l="inf"><span class="yr">2021</span>Andrade, V., Gerónimo, K. y Ratto, N. <strong><a href="https://doi.org/10.3917/ried.246.0151" target="_blank" rel="noopener">La persistente informalidad en el trabajo doméstico en Chile: una evaluación de la institucionalidad y de las relaciones laborales en el sector antes de la pandemia.</a></strong> <em>Revue internationale des études du développement, (246).</em><span class="tag">Informalidad</span></li>
+    <li data-l="sind"><span class="yr">2020</span>Ratto, N. <strong><a href="https://repositorio.uchile.cl/handle/2250/181086" target="_blank" rel="noopener">Las estrategias sindicales de las trabajadoras de casa particular en Chile en su lucha contra la precariedad (2010–2014).</a></strong> <em>Revista Izquierdas, 49: 1155–1176.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2019</span>Ratto, N. <strong><a href="https://revistas.psi.unc.edu.ar/index.php/astrolabio/article/download/23425/24199/72818" target="_blank" rel="noopener">Estrategias sindicales y recursos de poder. Presentación y prueba empírica de un marco para el análisis de las variedades sindicales en Chile y en América Latina.</a></strong> <em>Revista Astrolabio Nueva Época, 23.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2019</span>Ayala, J. y Ratto, N. <strong><a href="https://revistas.ucm.es/index.php/STRA/es/article/view/63264" target="_blank" rel="noopener">Estrategias sindicales en dos grandes empresas fragmentadas y filiales de Coca-Cola en Chile.</a></strong> <em>Revista Sociología del Trabajo, 94.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2018</span>Ratto, N. <strong><a href="https://bibliotecadigital.academia.cl/server/api/core/bitstreams/1aa86a6a-53ca-4a34-9d1b-1ccf38cf4134/content" target="_blank" rel="noopener">El poder de los trabajadores como factor explicativo de los resultados de las huelgas laborales en el sector privado y asalariado de Chile (2006–2016).</a></strong> <em>Revista Academia &amp; Crítica, 2.</em><span class="tag">Sindicatos</span></li>
+  </ul>
+  <h3 class="sub" data-group="o">Otras publicaciones</h3>
+  <p class="note" data-group="o">Capítulos de libro, informes, documentos de trabajo y borradores.</p>
+  <ul class="pubs" id="pubs-o">
+    <li data-l="inf"><span class="yr">2026</span>Ratto, N., Villarroel, D. y Vidal, D. <strong><a href="https://www.subtrab.gob.cl/wp-content/uploads/2026/03/Bases-Estrategia-Transicion-a-la-Formalidad-09.03.2026.pdf" target="_blank" rel="noopener">Bases para una Estrategia de Transición a la Formalidad Laboral para Chile.</a></strong> <em>Subsecretaría del Trabajo.</em><span class="tag">Informalidad</span></li>
+    <li data-l="plat"><span class="yr">2026</span>Labra, F. y Ratto, N. <strong>Regulación de trabajadores de plataformas. Trabajadores de Chile y gobiernos progresistas frente a la CIT 114.</strong> <em>Informe FES Chile.</em> [En prensa]<span class="tag">Plataformas</span></li>
+    <li data-l="plat"><span class="yr">2026</span>Subcomisión Plataformas Digitales. <strong>Tercera evaluación de la Ley 21.431 de plataformas digitales de servicios, año 2025.</strong> <em>Informe para el Consejo Superior Laboral.</em><span class="tag">Plataformas</span></li>
+    <li data-l="plat"><span class="yr">2025</span>Ratto, N. y Arredondo, F. <strong>Segunda evaluación de la Ley 21.431 de plataformas digitales de servicios, año 2024.</strong> <em>Informe para el Consejo Superior Laboral.</em><span class="tag">Plataformas</span></li>
+    <li data-l="emp"><span class="yr">2025</span>Subsecretaría del Trabajo. <strong><a href="https://www.subtrab.gob.cl/wp-content/uploads/2025/06/Informe-Final-de-Resultados.pdf" target="_blank" rel="noopener">Encuesta de Demanda Laboral 2024. Primer informe de resultados.</a></strong> <em>Departamento de Intermediación y Prospección Laboral. Ratto, N., coordinador de la publicación.</em><span class="tag">Empleo</span></li>
+    <li data-l="plat"><span class="yr">2024</span>Ratto, N. y Arredondo, F. <strong>Primera evaluación de la Ley 21.431 de plataformas digitales de servicios 2022–2023.</strong> <em>Informe para el Consejo Superior Laboral.</em><span class="tag">Plataformas</span></li>
+    <li data-l="emp"><span class="yr">2024</span>Bennett, F., Aguilera, A., Ratto, N. y Aguayo, O. <strong><a href="https://www.subtrab.gob.cl/wp-content/uploads/2024/07/ESTADO-DE-LA-OCUPACION-Y-LA-DESOCUPACION-EN-CHILE-digital.pdf" target="_blank" rel="noopener">Estado de la ocupación y la desocupación en Chile: análisis de la evolución del empleo y el mercado de trabajo.</a></strong> <em>Documento de Trabajo, Subsecretaría del Trabajo.</em><span class="tag">Empleo</span></li>
+    <li data-l="sind"><span class="yr">2023</span>Durán, G. y Ratto, N. <strong>El poder sindical y la desigualdad salarial en Chile: una mirada desde los sectores económicos.</strong> En López y Barrera (coords.), <em>Desigualdades de Nuestro Tiempo.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="emp"><span class="yr">2022</span>Boccardo, G., Ratto, N. y Andrade, V. <strong><a href="https://libros.uchile.cl/files/presses/1/monographs/1300/submission/proof/142/" target="_blank" rel="noopener">Teletrabajar en los servicios públicos durante la pandemia en Chile. ¿Una modalidad de trabajo que llegó para quedarse?</a></strong> En Vidal, P., Assael, J., Facuse, M., Gomez, A., Miranda, C., Urrutia, M. y Castillo, C. (coords.), <em>Pandemia y crisis. Desafíos para las ciencias sociales.</em> Social-Ediciones.<span class="tag">Empleo</span></li>
+    <li data-l="emp"><span class="yr">2022</span>Ratto, N. y Durán, A. <strong><a href="https://www.ine.gob.cl/inicio/documentos-de-trabajo/documento/c%C3%A1lculo-y-an%C3%A1lisis-de-las-tasas-de-rotaci%C3%B3n-laboral-con-registros-administrativos-de-la-superintendencia-de-seguridad-social" target="_blank" rel="noopener">Cálculo y análisis de las Tasas de Rotación Laboral con Registros Administrativos de la Superintendencia de Seguridad Social.</a></strong> <em>Documento de Trabajo, INE.</em><span class="tag">Empleo</span></li>
+    <li data-l="sind"><span class="yr">2022</span>Ratto, N. <strong>Competencia y politización sindical: sobre el sentido de las huelgas en el comercio chileno.</strong> En Trópia y Magaldi (eds.), <em>Sociologia do Trabalho no Comércio.</em><span class="tag">Sindicatos</span></li>
+  </ul>
+</section>
+
+<section id="desarrollo" data-tab="publicaciones">
+  <h2>En desarrollo</h2>
+  <div class="lines">
+    <article class="card">
+      <h3>Tesis doctoral sobre trayectorias, dinámicas e impactos de informalidad laboral en Chile</h3>
+      <p>Proyecto del Doctorado en Sociología (PUC) que analiza las trayectorias, las dinámicas y los impactos de la informalidad laboral en Chile.</p>
+      <span class="tag-line inf">Informalidad laboral y trayectorias de empleo</span>
+    </article>
+    <article class="card">
+      <h3>Informalidad laboral y participación electoral: un enfoque multinivel</h3>
+      <p>Investigación que relaciona la inserción informal en el mercado de trabajo con la participación electoral, con modelos multinivel y datos de LAPOP 2023.</p>
+      <span class="tag-line inf">Informalidad laboral y trayectorias de empleo</span>
+    </article>
+    <article class="card">
+      <h3>Informalidad en plataformas digitales y realidades emergentes</h3>
+      <p>Proyecto sobre la informalidad en el trabajo de plataformas digitales y las nuevas realidades laborales que emergen en torno a ellas.</p>
+      <span class="tag-line inf">Informalidad laboral y trayectorias de empleo</span>
+      <span class="tag-line plat">Plataformas digitales y regulaciones del trabajo</span>
+    </article>
+  </div>
+</section>
+
+<section id="opinion" data-tab="opinion">
+  <h2>Opinión</h2>
+  <ul class="pubs">
+    <li data-l="plat"><span class="yr">2026</span>Labra, F. y Ratto, N. <strong><a href="https://eldesconcierto.cl/opinion/un-nuevo-estandar-internacional-el-trabajo-las-aplicaciones-como-andamos-casa-n5459997" target="_blank" rel="noopener">Un nuevo estándar internacional para el trabajo en las aplicaciones: ¿Cómo andamos por casa?</a></strong> <em>El Desconcierto, 30 de junio.</em><span class="tag">Plataformas</span></li>
+    <li data-l="emp"><span class="yr">2026</span>Morales, R. y Ratto, N. <strong><a href="https://www.biobiochile.cl/noticias/opinion/tu-voz/2026/06/15/una-nueva-franquicia-tributaria-con-rostro-mipyme.shtml" target="_blank" rel="noopener">Una nueva Franquicia Tributaria con rostro Mipyme.</a></strong> <em>BioBioChile, 15 de junio.</em><span class="tag">Empleo</span></li>
+    <li data-l="emp"><span class="yr">2026</span>Ratto, N. <strong><a href="https://www.ciperchile.cl/2026/05/08/un-credito-a-las-empresas-que-desunifica-y-confunde/" target="_blank" rel="noopener">Un crédito a las empresas que desunifica y confunde.</a></strong> <em>Carta al director, CIPER, 8 de mayo.</em><span class="tag">Empleo</span></li>
+    <li data-l="emp"><span class="yr">2026</span>Bennett, F. y Ratto, N. <strong>Subsidio al empleo.</strong> <em>Carta al director, La Segunda.</em><span class="tag">Empleo</span></li>
+    <li data-l="inf"><span class="yr">2025</span>Ratto, N. y Vidal, D. <strong><a href="https://www.latercera.com/opinion/noticia/una-nueva-medicion-de-la-informalidad-opaca-y-desajustada/" target="_blank" rel="noopener">Una nueva medición de la informalidad opaca y desajustada.</a></strong> <em>La Tercera, 27 de agosto. También en <a href="https://www.biobiochile.cl/noticias/opinion/columnas-bbcl/2025/08/28/una-nueva-medicion-de-la-informalidad-opaca-y-desajustada.shtml" target="_blank" rel="noopener">BioBioChile</a>.</em><span class="tag">Informalidad</span></li>
+    <li data-l="emp"><span class="yr">2025</span><strong><a href="https://www.biobiochile.cl/noticias/opinion/columnas-bbcl/2025/08/07/sobre-la-coyuntura-el-empleo-y-el-ministerio-del-trabajo.shtml" target="_blank" rel="noopener">Sobre la coyuntura, el empleo y el Ministerio del Trabajo.</a></strong> <em>BioBioChile, 7 de agosto.</em><span class="tag">Empleo</span></li>
+    <li data-l="sind"><span class="yr">2019</span><strong><a href="https://www.revistarosa.cl/staging/7574/2019/07/01/sobre-la-primera-huelga-del-sil-el-sindicato-mas-grande-de-chile-breve-historia-del-conflicto-y-el-consenso-en-walmart/" target="_blank" rel="noopener">Sobre la primera huelga del SIL, el sindicato más grande de Chile: breve historia del conflicto y el consenso en Walmart.</a></strong> <em>Revista Rosa, 1 de julio.</em><span class="tag">Sindicatos</span></li>
+  </ul>
+</section>
+
+<section id="dashboards" data-tab="dashboards">
+  <h2>Dashboards</h2>
+  <div class="lines">
+    <article class="card">
+      <h3><a href="https://nicolasrattor.github.io/catalogo_ocupaciones/" target="_blank" rel="noopener">Catálogo de ocupaciones</a></h3>
+      <p>Catálogo público de ocupaciones de Chile construido sobre la clasificación CIUO-08.CL.</p>
+      <a href="https://nicolasrattor.github.io/catalogo_ocupaciones/" target="_blank" rel="noopener">Ver dashboard →</a>
+    </article>
+    <article class="card">
+      <h3><a href="https://nicolasrattor.github.io/monitoreo-plataformas-digitales-dashboard/" target="_blank" rel="noopener">Empleo en plataformas digitales</a></h3>
+      <p>Monitoreo del empleo en plataformas digitales a partir de datos de la Encuesta Nacional de Empleo.</p>
+      <a href="https://nicolasrattor.github.io/monitoreo-plataformas-digitales-dashboard/" target="_blank" rel="noopener">Ver dashboard →</a>
+    </article>
+    <article class="card">
+      <h3><a href="https://nicolasrattor.github.io/desempleo/dashboard_desempleo.html" target="_blank" rel="noopener">Desempleo en Chile</a></h3>
+      <p>Panel sobre el desempleo en Chile, más allá de la cifra oficial de la tasa de desocupación.</p>
+      <a href="https://nicolasrattor.github.io/desempleo/dashboard_desempleo.html" target="_blank" rel="noopener">Ver dashboard →</a>
+    </article>
+  </div>
+</section>
+
+<section id="presentaciones" data-tab="presentaciones">
+  <h2>Presentaciones</h2>
+  <div class="filters" role="group" aria-label="Filtrar presentaciones por línea">
+    <button data-f="all" aria-pressed="true">Todas</button>
+    <button data-f="sind" aria-pressed="false">Sindicatos</button>
+    <button data-f="inf" aria-pressed="false">Informalidad</button>
+    <button data-f="plat" aria-pressed="false">Plataformas</button>
+    <button data-f="emp" aria-pressed="false">Empleo</button>
+  </div>
+  <h3 class="sub">Congresos y seminarios científicos</h3>
+  <ul class="pubs">
+    <li data-l="plat inf"><span class="yr">2026</span><strong>Transición a la formalidad en trabajadores de plataformas digitales. Un análisis de los efectos laborales de la Ley 21.431 de Chile.</strong> <em>XVI Jornadas de Estudios Sociales de la Economía, Eje 5. 9 al 12 de noviembre.</em><span class="tag">Plataformas</span><span class="tag">Informalidad</span></li>
+    <li data-l="plat inf"><span class="yr">2026</span><strong>Explicando el déficit en la cobertura de la seguridad social de los trabajadores de plataformas digitales en Chile.</strong> <em>Congreso ALAST 2026, Mesa 15 Cambio tecnológico y reconfiguración del trabajo. Guadalajara, México.</em><span class="tag">Plataformas</span><span class="tag">Informalidad</span></li>
+    <li data-l="sind"><span class="yr">2022</span><strong>sindicatoscl. Paquete R para acceder a microdatos de sindicatos activos y en receso en Chile.</strong> <em>Congreso ALAST Chile.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2019</span><strong>Ayala, J. y Ratto, N. El sindicato frente al subcontrato. Estrategias sindicales en dos grandes empresas fragmentadas y filiales de Coca-Cola en Chile.</strong> <em>V Seminario Internacional Desigualdad y Movilidad Social en América Latina, IDEAS-USACH, FACSO y COES.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="sind"><span class="yr">2018</span><strong>Paralelismo sindical en una gran empresa del retail de Chile.</strong> <em>10° Congreso Chileno de Sociología PRE-ALAS, Iquique.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="inf"><span class="yr">2018</span><strong>Andrade, V., Gerónimo, K. y Ratto, N. Del dicho al hecho. Elementos limitantes y promotores de la aplicación de la Ley 20.786 en el sector de las trabajadoras de casa particular de Chile.</strong> <em>10° Congreso Chileno de Sociología PRE-ALAS, Iquique.</em><span class="tag">Informalidad</span></li>
+    <li data-l="sind"><span class="yr">2018</span><strong>Organizados contra la precariedad laboral. Un análisis de las estrategias sindicales usadas por sectores de trabajadores estructuralmente débiles en Chile.</strong> <em>Seminario Problemas Sociales y Políticos en Europa y América Latina desde la década de 1970, Fundación Alexander von Humboldt.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="inf"><span class="yr">2018</span><strong>Boccardo, G., Moya, C., Ratto, N. y Ruiz, F. Deskilling of the cleaning work labour process: intersection between class and gender.</strong> <em>36th International Labour Process Conference, Universidad de Buenos Aires.</em><span class="tag">Informalidad</span></li>
+    <li data-l="sind"><span class="yr">2017</span><strong>El poder en el lugar de trabajo: un análisis de los resultados de diez huelgas laborales ocurridas en el sector privado y asalariado de Chile (2006–2016).</strong> <em>XV Jornadas de Estudiantes de Postgrado, Universidad de Chile.</em><span class="tag">Sindicatos</span></li>
+    <li data-l="inf"><span class="yr">2017</span><strong>Boccardo, G., Moya, C., Ratto, N. y Ruiz, F. Mecanismos informales de control del proceso de trabajo de aseo subcontratado en el sector universitario en Chile.</strong> <em>XXXI Congreso ALAS, Uruguay.</em><span class="tag">Informalidad</span></li>
+    <li data-l="sind"><span class="yr">2017</span><strong>Ratto, N. y Selamé, N. Características y determinantes de las huelgas laborales (in)eficaces en el sector privado de la economía en el Chile actual (2006–2016).</strong> <em>XV Encuentro Nacional de ABET, Río de Janeiro.</em><span class="tag">Sindicatos</span></li>
+  </ul>
+  <h3 class="sub">Presentaciones invitadas</h3>
+  <ul class="pubs">
+    <li data-l="plat"><span class="yr">2026</span><strong>Balance de la implementación de la Ley 21.431 de Chile, que regula el trabajo de plataformas digitales.</strong> <em>Seminario El Colegio de México y Red de Estudios sobre Trabajo en Plataformas en América Latina (RETPAL), 19 de marzo.</em><span class="tag">Plataformas</span></li>
+    <li data-l="emp"><span class="yr">2025</span><strong><a href="https://www.micare.cl/2025/10/14/se-realizo-la-segunda-version-del-seminario-ceas-conectando-saberes/" target="_blank" rel="noopener">Personas mayores en el mercado laboral y el nuevo Subsidio Unificado al Empleo (SUE).</a></strong> <em>Seminario CEAS Conectando Saberes, Universidad Mayor y MICARE. Octubre.</em><span class="tag">Empleo</span></li>
+    <li data-l="plat"><span class="yr">2025</span><strong><a href="https://www.m-new.org/noticias-/seminario-inteligencia-artificial-y-trabajo-desafos-regulatorios" target="_blank" rel="noopener">Mesa 2. Plataformas digitales de servicios y los desafíos de la fiscalización algorítmica.</a></strong> <em>Moderación. Seminario Inteligencia Artificial y Trabajo: Desafíos Regulatorios, Núcleo Milenio MNEW, PEPET-UDP y Ministerio del Trabajo. 10 de octubre.</em><span class="tag">Plataformas</span></li>
+    <li data-l="plat"><span class="yr">2025</span><strong>Regulación del trabajo de plataformas digitales: revisión de la experiencia chilena (2022–2025).</strong> <em>Taller RIAL Inteligencia artificial, plataformas digitales y derechos laborales en las Américas, OEA. Bogotá.</em><span class="tag">Plataformas</span></li>
+    <li data-l="emp"><span class="yr">2025</span><strong>Movilizando el empleo en las inversiones de H2V en Chile, Región de Magallanes.</strong> <em>Seminario Hacia el Desarrollo de Sistemas de Empleo, Instituto Ítalo-Latinoamericano (IILA). San José, Costa Rica.</em><span class="tag">Empleo</span></li>
+    <li data-l="emp"><span class="yr">2022</span><strong><a href="https://www.pucv.cl/pucv/evento/institucional/charla-mercado-laboral-actual-datos-claves-para-profesionales" target="_blank" rel="noopener">Mercado laboral actual: datos claves para profesionales universitarios.</a></strong> <em>Charla, Pontificia Universidad Católica de Valparaíso. 16 de noviembre.</em><span class="tag">Empleo</span></li>
+  </ul>
+</section>
+
+<section id="trayectoria" data-tab="trayectoria">
+  <h2>Trayectoria</h2>
+  <h3 class="sub">Formación</h3>
+  <ul class="timeline">
+    <li><span class="when">2026–actualidad</span><span><strong>Doctorado en Sociología</strong>Pontificia Universidad Católica de Chile</span></li>
+    <li><span class="when">2017–2018</span><span><strong>Magíster en Ciencias Sociales, mención Sociología de la Modernización</strong>Universidad de Chile</span></li>
+    <li><span class="when">2012–2016</span><span><strong>Sociólogo</strong>Universidad de Chile</span></li>
+  </ul>
+  <h3 class="sub">Experiencia profesional</h3>
+  <ul class="timeline">
+    <li><span class="when">2026–actualidad</span><span><strong>Consultor independiente</strong>Políticas de empleo y mercado laboral</span></li>
+    <li><span class="when">2025–2026</span><span><strong>Jefe, División de Políticas de Empleo</strong>Subsecretaría del Trabajo, Ministerio del Trabajo y Previsión Social</span></li>
+    <li><span class="when">2022–2025</span><span><strong>Jefe, Departamento de Intermediación y Prospección Laboral</strong>Ministerio del Trabajo y Previsión Social</span></li>
+    <li><span class="when">2019–2022</span><span><strong>Analista socioeconómico</strong>Instituto Nacional de Estadísticas (INE)</span></li>
+  </ul>
+  <h3 class="sub">Docencia</h3>
+  <ul class="timeline">
+    <li><span class="when">2026</span><span><strong>Profesor colaborador, Diseño de Investigación Social</strong>Universidad de Chile</span></li>
+    <li><span class="when">2025</span><span><strong>Docente, Diplomado Diálogo Social para el Mundo del Trabajo</strong>Módulo Empleo y Transiciones Tecnológicas, Demográficas y Ecológicas · Facultad de Derecho, USACH</span></li>
+    <li><span class="when">2021</span><span><strong>Docente, Diseño y Análisis de Datos Cuantitativos (en R)</strong>Sociología, Universidad Católica Silva Henríquez</span></li>
+    <li><span class="when">2021</span><span><strong>Apoyo docente, Metodología I (metodologías cuantitativas)</strong>Magíster en Ciencias Sociales, Universidad de Chile</span></li>
+    <li><span class="when">2019–2021</span><span><strong>Relator de capacitaciones en R</strong>Instituto Nacional de Estadísticas</span></li>
+  </ul>
+  <h3 class="sub">Herramientas</h3>
+  <p>R · Quarto · Markdown · PowerBI · LaTeX · Claude</p>
+</section>
+
+<section id="contacto" data-tab="contacto">
+  <h2>Contacto</h2>
+  <p>Para colaboraciones, consultorías o participación en actividades:</p>
+  <p><a href="mailto:nicolasrattor@gmail.com">nicolasrattor@gmail.com</a> · <a href="https://github.com/nicolasrattor">github.com/nicolasrattor</a></p>
+  <p style="color:var(--muted)">Instituto de Sociología, Pontificia Universidad Católica de Chile</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="y">2026</span> Nicolás Ratto</div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('section').forEach(function(sec){
+    var btns = sec.querySelectorAll('.filters button');
+    if(!btns.length) return;
+    var items = sec.querySelectorAll('.pubs li');
+    var lists = sec.querySelectorAll('ul.pubs');
+    function refresh(f){
+      items.forEach(function(li){ li.classList.toggle('hidden', f!=='all' && li.dataset.l.split(' ').indexOf(f)<0); });
+      lists.forEach(function(ul){
+        var any = ul.querySelector('li:not(.hidden)') !== null;
+        ul.classList.toggle('hidden', !any);
+        var prev = ul.previousElementSibling;
+        while(prev && (prev.matches('h3.sub') || prev.matches('p.note'))){
+          prev.classList.toggle('hidden', !any);
+          prev = prev.previousElementSibling;
+        }
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+        refresh(b.dataset.f);
+      });
+    });
+  });
+  /* pestañas */
+  var panes = document.querySelectorAll('main [data-tab]');
+  var navs = document.querySelectorAll('nav.tabs a');
+  function show(tab){
+    panes.forEach(function(el){ el.classList.toggle('tab-hidden', el.dataset.tab!==tab); });
+    navs.forEach(function(a){ if(a.dataset.nav===tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  }
+  function tabOf(id){
+    var el = id && document.getElementById(id);
+    if(!el) return 'inicio';
+    var p = el.closest('[data-tab]');
+    return p ? p.dataset.tab : 'inicio';
+  }
+  function go(id, scroll){
+    show(tabOf(id));
+    var el = document.getElementById(id);
+    if(scroll){ if(el && id!==tabOf(id)) el.scrollIntoView(); else window.scrollTo(0,0); }
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if(!id) return;
+    e.preventDefault();
+    go(id, true);
+    try{ history.replaceState(null,'','#'+id); }catch(_){}
+  });
+  window.addEventListener('hashchange', function(){ go(location.hash.slice(1), false); });
+  go(location.hash.slice(1), false);
+})();
+</script>
+</body>
+</html>
