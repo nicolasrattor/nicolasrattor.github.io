@@ -18,7 +18,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 header.nav{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
 header.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px;gap:16px;flex-wrap:wrap}
 .brand{font-family:var(--serif);font-weight:700;color:var(--ink)}
@@ -27,7 +27,7 @@ nav a:hover{color:var(--accent);text-decoration:none}
 .hero{padding:72px 0 40px}
 .hero h1{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.2rem);line-height:1.1;margin:0 0 8px}
 .hero .role{color:var(--muted);font-size:1.1rem;margin:0 0 24px}
-.hero p.lead{font-family:var(--serif);font-size:1.2rem;max-width:660px}
+.hero p.lead{font-family:var(--serif);font-size:1.2rem;max-width:820px}
 .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .btn{border:1px solid var(--line);background:var(--surface);padding:8px 16px;border-radius:999px;font-size:.92rem;color:var(--ink)}
 .btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
@@ -35,6 +35,8 @@ nav a:hover{color:var(--accent);text-decoration:none}
 section{padding:44px 0;border-top:1px solid var(--line)}
 h2{font-family:var(--serif);font-size:1.6rem;margin:0 0 20px}
 .lines{display:grid;gap:16px}
+#investigacion .lines{grid-template-columns:1fr 1fr}
+@media(max-width:700px){#investigacion .lines{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
 .card h3{margin:0 0 6px;font-family:var(--serif);font-size:1.15rem}
 .card .num{display:inline-block;color:var(--accent);font-weight:700;margin-right:8px}
@@ -55,6 +57,8 @@ h3.sub{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(-
 .timeline .when{color:var(--muted);font-size:.9rem}
 .timeline strong{display:block}
 @media(max-width:600px){.timeline li{grid-template-columns:1fr;gap:2px}nav a{margin-left:12px}}
+.foot{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap}
+.foot .ai{font-size:.8rem;opacity:.85}
 footer{padding:36px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
 .pubs strong a,.card h3 a{color:inherit;text-decoration:underline;text-decoration-color:var(--muted);text-decoration-thickness:1px;text-underline-offset:3px}
 .pubs strong a:hover,.card h3 a:hover{color:var(--accent);text-decoration-color:var(--accent)}
@@ -97,6 +101,7 @@ section:first-of-type{border-top:0}
   <div class="links">
     <a class="btn primary" href="#contacto">Contacto</a>
     <a class="btn" href="#publicaciones">Ver publicaciones</a>
+    <a class="btn" href="#dashboards">Visualización de datos</a>
   </div>
 </div>
 
@@ -108,18 +113,19 @@ section:first-of-type{border-top:0}
       <h3><span class="num">01</span>Políticas de empleo y prospección del mercado laboral</h3>
       <p>Diseño, implementación y evaluación de políticas de empleo, con foco en la información del mercado de trabajo para anticipar cambios, identificar brechas de talento y orientar la formación, la intermediación y los subsidios al empleo.</p>
       <ul>
-        <li>Análisis coyuntura de empleo y construcción de sistemas de información del mercado de trabajo</li>
-        <li>Certificación de competencias, formación y políticas activas de empleo</li>
-        <li>Subsidios al empleo y participación laboral de grupos con mayores barreras de inserción</li>
+        <li>Análisis coyuntura de empleo con la Encuesta Nacional de Empleo</li>
+        <li>Construcción de Sistemas de Información del Mercado de Trabajo (véase Estrategia Nacional de Prospección Laboral)</li>
+        <li>Certificación de competencias y formación para el trabajo</li>
+        <li>Políticas de empleo y subsidios a la contratación/participación laboral</li>
       </ul>
     </article>
     <article class="card">
       <h3><span class="num">02</span>Informalidad laboral y trayectorias de empleo</h3>
-      <p>Estudio de la persistencia de la informalidad, la precariedad y la movilidad entre empleos a partir de registros administrativos y encuestas. Es el eje de mi proyecto doctoral.</p>
+      <p>La persistencia de la informalidad laboral a nivel agregado plantea interrogantes respecto de la prevalencia del fenómeno en las trayectorias individuales de las personas, así como sobre la voluntariedad y los efectos de las transiciones entre diferentes tipos de empleo. Es el eje de mi proyecto doctoral y se toma de desarrollos previos:</p>
       <ul>
-        <li>Informalidad e institucionalidad en el trabajo doméstico</li>
-        <li>Medición de la precariedad en trabajadores independientes</li>
-        <li>Rotación laboral con registros administrativos</li>
+        <li>Análisis de la informalidad laboral en Chile y prevalencia entre diferentes grupos</li>
+        <li>Informalidad en el trabajo doméstico y plataformas digitales de transporte y reparto</li>
+        <li>Diferencias entre formales e informales en participación electoral y orientaciones sociopolíticas</li>
       </ul>
     </article>
     <article class="card">
@@ -319,7 +325,7 @@ section:first-of-type{border-top:0}
 </main>
 
 <footer>
-  <div class="wrap">© <span id="y">2026</span> Nicolás Ratto</div>
+  <div class="wrap foot"><span>© <span id="y">2026</span> Nicolás Ratto</span><span class="ai">Sitio desarrollado con asistencia de inteligencia artificial (Claude, de Anthropic). Contenidos revisados y validados por el autor.</span></div>
 </footer>
 
 <script>
